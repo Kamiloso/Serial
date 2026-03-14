@@ -9,6 +9,8 @@ Files can be obtained from [here](https:/Kamiloso/Serial/releases).
 
 ## Simple Usage Example
 
+Copy-paste this code into a new project and try-out the library.
+
 ```java
 package page.se3.myproject;
 
@@ -91,14 +93,14 @@ public class Main {
 
 ## Table of Contents
 
-| Section | Description |
-| :--- | :--- |
-| **[1. Structure of the SRL Language](#1-structure-of-the-srl-language)** | Syntax, parser behavior, and available commands. |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.1 Parser Operation](#11-parser-operation) | Processing steps: comments, tokenization, verification. |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.2 Commands](#12-commands) | Keywords: `RECORD`, `DEF`, `LET`, `SET`, `NEST`, `BASE`, `ENSURE`. |
-| **[2. Public API](#2-public-api)** | Java library classes, methods, and integrations. |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.1 Public Classes and Interfaces](#21-public-classes-and-interfaces) | `SerialCompiler`, `Compressor`, and `Record` operations. |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.2 Exceptions](#22-exceptions) | Error handling (`SyntaxException`, `OperationException`). |
+| Section | Description | Quick Links |
+| :--- | :--- | :--- |
+| **[1. Structure of the SRL Language](#1-structure-of-the-srl-language)** | Syntax, parser behavior, and available commands. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.1 Parser Operation](#11-parser-operation) | Processing steps and core logic. | [Comments](#111-removing-comments) · [Tokenization](#112-tokenization) · [Patterns](#113-construction-of-patterns-for-data-structures) · [Verification](#114-verification-of-the-obtained-serialcompiler-object) |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.2 Commands](#12-commands) | Language keywords and their usage. | [`RECORD`](#121-record--struct) · [`DEF`](#122-define--def) · [`LET`](#123-let) · [`SET`](#124-set) · [`NEST`](#125-nest) · [`BASE`](#126-base) · [`ENSURE`](#127-ensure) |
+| **[2. Public API](#2-public-api)** | Java library classes, methods, and integrations. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.1 Public Classes & Interfaces](#21-public-classes-and-interfaces) | Core API components and data structures. | [`SerialCompiler`](#211-serialcompiler) · [`Compressor`](#212-serialcompilercompressor) · [`Record`](#213-serialcompilerrecord) |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.2 Exceptions](#22-exceptions) | Error handling and library validation. | [`SyntaxException`](#221-serialcompilersyntaxexception) · [`OperationException`](#222-serialcompileroperationexception) |
 
 ---
 
