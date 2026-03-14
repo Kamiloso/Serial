@@ -3,13 +3,11 @@
 This is a data serialization library for Java. Its one-file architecture allows for a really simple importing process. 
 Write code in a custom data-defining language and use this library to serialize and deserialize records. You can also validate and repair data automatically during deserialization or by using the `checkAndRepair()` method.
 
-## How To Import?
+### How To Import?
 Importing is very simple. Just copy the file `SerialCompiler.java` into the package `page.se3.serial` inside your Java project. You can optionally include `SerialCompilerTests.java` (unit tests written in the JUnit5 framework). 
 Files can be obtained from [here](https:/Kamiloso/Serial/releases).
 
-## Simple Usage Example
-
-Copy-paste this code into a new project and try-out the library.
+### Usage Example
 
 ```java
 package page.se3.myproject;
@@ -95,22 +93,94 @@ public class Main {
 
 | Section | Description | Quick Links |
 | :--- | :--- | :--- |
-| **[1. Structure of the SRL Language](#1-structure-of-the-srl-language)** | Syntax, parser behavior, and available commands. | |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.1 Parser Operation](#11-parser-operation) | Processing steps and core logic. | [Comments](#111-removing-comments) · [Tokenization](#112-tokenization) · [Patterns](#113-construction-of-patterns-for-data-structures) · [Verification](#114-verification-of-the-obtained-serialcompiler-object) |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.2 Commands](#12-commands) | Language keywords and their usage. | [`RECORD`](#121-record--struct) · [`DEF`](#122-define--def) · [`LET`](#123-let) · [`SET`](#124-set) · [`NEST`](#125-nest) · [`BASE`](#126-base) · [`ENSURE`](#127-ensure) |
-| **[2. Public API](#2-public-api)** | Java library classes, methods, and integrations. | |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.1 Public Classes & Interfaces](#21-public-classes-and-interfaces) | Core API components and data structures. | [`SerialCompiler`](#211-serialcompiler) · [`Compressor`](#212-serialcompilercompressor) · [`Record`](#213-serialcompilerrecord) |
-| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.2 Exceptions](#22-exceptions) | Error handling and library validation. | [`SyntaxException`](#221-serialcompilersyntaxexception) · [`OperationException`](#222-serialcompileroperationexception) |
+| **[1. Overview & Compatibility](#1-overview--compatibility)** | Introduction, features, and binary schema evolution. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.1 Library Functionalities](#11-overview-of-library-functionalities) | Basic concepts, SRL, and Java examples. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [1.2 Binary Format Compatibility](#12-binary-format-compatibility) | `STRUCT` vs `RECORD` differences. | [Structures](#121-structures) · [Records](#122-records) · [Schema Evolution](#123-schema-evolution-support) |
+| **[2. Structure of the SRL Language](#2-structure-of-the-srl-language)** | Syntax, parser behavior, and available commands. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.1 Parser Operation](#21-parser-operation) | Processing steps and core logic. | [Comments](#211-removing-comments) · [Tokenization](#212-tokenization) · [Patterns](#213-construction-of-patterns-for-data-structures) · [Verification](#214-verification-of-the-obtained-serialcompiler-object) |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [2.2 Commands](#22-commands) | Language keywords and their usage. | [`RECORD`](#221-record--struct) · [`DEF`](#222-define--def) · [`LET`](#223-let) · [`SET`](#224-set) · [`NEST`](#225-nest) · [`BASE`](#226-base) · [`ENSURE`](#227-ensure) |
+| **[3. Public API](#3-public-api)** | Java library classes, methods, and integrations. | |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [3.1 Public Classes & Interfaces](#31-public-classes-and-interfaces) | Core API components and data structures. | [`SerialCompiler`](#311-serialcompiler) · [`Compressor`](#312-serialcompilercompressor) · [`Record`](#313-serialcompilerrecord) |
+| &nbsp;&nbsp;&nbsp;&nbsp;↳ [3.2 Exceptions](#32-exceptions) | Error handling and library validation. | [`SyntaxException`](#321-serialcompilersyntaxexception) · [`OperationException`](#322-serialcompileroperationexception) |
+
+---
+---
+
+# 1. Overview & Compatibility
+
+## 1.1 Overview of Library Functionalities
+
+The Serial library allows for defining fixed-size data structures in the SRL language, consisting of primitive types found in the Java language. It supports nesting structures / records and creating inheritance hierarchies. There is support for fixed-size arrays, including UTF-16 encoded strings, represented by character arrays padded with NULL characters at the end. 
+
+Data structures defined this way can be modified, serialized to a byte array, and deserialized using the library's public interface.
+
+**🔹 SRL Code Example:**
+```srl
+STRUCT Vector3
+LET double x ENSURE x IS FINITE
+LET double y ENSURE y IS FINITE
+LET double z ENSURE z IS FINITE
+
+RECORD Entity
+LET long id
+NEST Vector3 position
+
+RECORD Player : Entity
+SET position.y = 5.0
+LET char nickname [16] = "Player"
+ENSURE nickname MATCHES "^[a-zA-Z0-9_-]+$"
+```
+
+**🔹 Usage Example in Java:**
+```java
+SerialCompiler compiler = new SerialCompiler(srlSourceCode);
+Record player = compiler.makeRecord("Player");
+
+player.setValue("id", 5L);
+player.setString("nickname", "Wojtek2005");
+
+byte[] bytes = player.serialize();
+Record deserialized = compiler.makeRecord(bytes);
+
+System.out.println(deserialized.getReport());
+```
 
 ---
 
-# 1. Structure of the SRL Language
+## 1.2 Binary Format Compatibility
 
-## 1.1 Parser Operation
+One of the biggest advantages of the Serial library is the ability to maintain binary format compatibility in case of data structure schema evolution. It differs significantly between structures (`STRUCT`) and records (`RECORD`). Renaming a structure to a record and vice versa does not preserve binary format compatibility.
+
+### 1.2.1 Structures
+Their binary format is simple. Fields are serialized exactly in the order they were defined. This makes schema evolution possibilities very limited for them. However, their advantage is their small size and fast serialization / deserialization.
+
+### 1.2.2 Records
+Fields are serialized together with a header, which is a 3-byte hash of their name. This hash is based on the CRC32 function, removing the most significant byte from its output. Thanks to this procedure, records are much more resistant to changes in the data structure, which, however, entails a slightly larger size.
+
+### 1.2.3 Schema Evolution Support
+
+| Type of change | Structure | Record |
+| :--- | :--- | :--- |
+| **Change field order** | NO | YES |
+| **Add field** | Only at the end | YES |
+| **Remove field** | NO | Through deprecating comment |
+| **Change array size** | Only enlarging primitive array at the end | YES |
+| **Add inheritance / nesting** | Only adding `BASE` / `NEST` command at the end | YES |
+| **Remove inheritance / nesting** | NO | Through deprecating comment |
+| **Change field type** | NO | NO |
+
+> **💡 Note:** If a record inherits from a structure or nests it, all record fields originating from the structure will be treated during serialization as part of the record. The same applies to record fields passing to a structure.
+
+---
+---
+
+# 2. Structure of the SRL Language
+
+## 2.1 Parser Operation
 
 The parser processes the SRL source code in sequential steps, described below.
 
-### 1.1.1 Removing Comments
+### 2.1.1 Removing Comments
 Before parsing begins, the program removes all comments from the provided SRL code. There are 3 types of comments:
 
 * **Single-line comments:** They start with the `//` sequence. The parser ignores all characters from this point until the occurrence of a newline character.
@@ -134,7 +204,7 @@ _LET float old_field_1
 __LET float old_field_2
 ```
 
-### 1.1.2 Tokenization
+### 2.1.2 Tokenization
 In the tokenization step, each line of the SRL source code is processed into an ordered set of tokens. Whitespaces are treated as separators, and empty tokens are skipped. Additionally, the use of quotes, e.g., `"my text"`, `'my text'`, communicates to the parser that the entire text inside, including the quotes, is to be treated as a single token. The parser supports escaping quotes using the `\` character, e.g., `"my text \"quote\""`, while the escape character itself is not removed at this parsing stage.
 
 **🔹 Example & Tokenization Result:**
@@ -174,10 +244,10 @@ LET char title [64] = "Adam Mickiewicz - \"Pan Tadeusz\""
 ENSURE title NOT MATCHES "Juliusz Słowacki"
 ```
 
-### 1.1.3 Construction of Patterns for Data Structures
+### 2.1.3 Construction of Patterns for Data Structures
 All commands obtained in the previous step are executed sequentially during compilation, resulting in the creation of special `RecordInfo` objects representing patterns for data structures defined in the SRL language. They contain a list of all variables located in the record / structure and their default values. They are used to construct `Record` objects of a specific type.
 
-### 1.1.4 Verification of the Obtained SerialCompiler Object
+### 2.1.4 Verification of the Obtained SerialCompiler Object
 In the last step, a verification takes place to check if all obtained `RecordInfo` objects are valid. For this purpose, the following steps are performed:
 
 1.  **Creation** of a list of all defined data structures (`Record` objects), filled with default values.
@@ -188,11 +258,11 @@ In the last step, a verification takes place to check if all obtained `RecordInf
 
 ---
 
-## 1.2 Commands
+## 2.2 Commands
 
 Below are all the commands occurring in the SRL language.
 
-### 1.2.1 RECORD / STRUCT
+### 2.2.1 RECORD / STRUCT
 
 The `RECORD` and `STRUCT` commands are used to notify the parser that the definition of a new record / structure is starting, depending on the chosen keyword. Optionally, inheritance information can be placed in them, without the need to use the `BASE` command.
 
@@ -216,7 +286,7 @@ LET int c = 3
 
 > **💡 Note:** The `Derived` record inherits all fields along with default values from the `Base1` structure and the `Base2` record, and then adds its own fields to them.
 
-### 1.2.2 DEFINE / DEF
+### 2.2.2 DEFINE / DEF
 
 The `DEFINE` and `DEF` commands act as text macros, replacing the indicated tokens directly before their interpretation. They differ primarily in scope: `DEFINE` is global, while `DEF` is a local macro whose validity expires with the closing of the current record or structure. 
 
@@ -242,7 +312,7 @@ RECORD Record2
 LET int ar2 = $global-value
 ```
 
-### 1.2.3 LET
+### 2.2.3 LET
 
 The `LET` command is used to define variables and arrays inside a record / structure and to assign default values to them. If the default value is not specified, it will be filled with zeros.
 
@@ -297,7 +367,7 @@ LET char text1 [16] = "ALA HAS A CAT\n"
 LET char text2 [16] = A L A ' ' H A S ' ' A ' ' C A T '\n'
 ```
 
-### 1.2.4 SET
+### 2.2.4 SET
 
 The `SET` command allows overwriting previously defined default values of variables and arrays. This is particularly useful when nesting and inheriting records, which is mentioned more in further sections of the documentation.
 
@@ -315,7 +385,7 @@ SET varB = 3
 SET text = a b // new string: "ab"
 ```
 
-### 1.2.5 NEST
+### 2.2.5 NEST
 
 The `NEST` command allows for nesting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record, preceding each variable name with the nest name, using a dot as a separator. 
 
@@ -340,7 +410,7 @@ NEST Base nests [3]
 SET nests[1].var = 99
 ```
 
-### 1.2.6 BASE
+### 2.2.6 BASE
 
 The `BASE` command allows for inheriting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record. Variables pasted into the record using the `BASE` command can be freely modified with the `SET` command. 
 
@@ -359,7 +429,7 @@ SET var = 3
 SET text = "abc"
 ```
 
-### 1.2.7 ENSURE
+### 2.2.7 ENSURE
 
 The `ENSURE` command provides an advanced tool for determining when a structure / record is valid. Rules can be defined for variables, arrays, and strings. 
 
@@ -413,21 +483,22 @@ ENSURE name MATCHES "^[\\p{L}-]*$"
 
 #### 📌 Evaluation Rules
 * **Order:** Conditions are checked according to the *short-circuit evaluation* rule, which means that when the value of an expression becomes certain, the evaluation is immediately interrupted.
-* **Compilation:** Conditions are not compiled as long as they do not need to be used. An invalid condition might throw an error at compilation, during verification of default records (`SyntaxException`), or only appear when checking an actual record (`OperationException`).
+* **Compilation:** Conditions are not compiled as long as they do not need to be used. An invalid condition might throw an error at compilation during verification of default records (`SyntaxException`), or only appear when checking an actual record (`OperationException`).
 
 ---
+---
 
-# 2. Public API
+# 3. Public API
 
 The Serial library provides a set of public classes and methods through which it can be used. Below is the documentation of the public interface.
 
-## 2.1 Public Classes and Interfaces
+## 3.1 Public Classes and Interfaces
 
 Utility classes are discussed below.
 
 ---
 
-### 2.1.1 SerialCompiler
+### 3.1.1 SerialCompiler
 
 This is a class whose object represents a parsed SRL language file. It acts as a factory for nested `SerialCompiler.Record` objects.
 
@@ -485,7 +556,7 @@ Record makeRecord(byte[] bytes, boolean autoFix = true)
 
 ---
 
-### 2.1.2 SerialCompiler.Compressor
+### 3.1.2 SerialCompiler.Compressor
 
 This is an interface representing the compression / decompression algorithm used during serialization / deserialization.
 
@@ -513,7 +584,7 @@ byte[] decompress(byte[] data)
 
 ---
 
-### 2.1.3 SerialCompiler.Record
+### 3.1.3 SerialCompiler.Record
 
 This is an object representing a structure / record (depending on the definition in SRL), which acts as a wrapper for a dictionary, providing the methods presented below. Variables are stored in it under keys in a flattened manner (e.g., `variable`, `array[5]`, `nests[2].variable`). This key or its prefix is called a **path**.
 
@@ -795,11 +866,11 @@ int hashCode()
 
 ---
 
-## 2.2 Exceptions
+## 3.2 Exceptions
 
 The implemented exception classes are discussed below. All special exceptions thrown in the library possess an error message that can be read using the `getMessage()` method.
 
-### 2.2.1 SerialCompiler.SyntaxException
+### 3.2.1 SerialCompiler.SyntaxException
 
 This is an exception inheriting from `Exception`, thrown in the `SerialCompiler` class constructor when an SRL language syntax error or another unexpected error occurs.
 
@@ -810,6 +881,6 @@ Integer getLine()
 
 <br>
 
-### 2.2.2 SerialCompiler.OperationException
+### 3.2.2 SerialCompiler.OperationException
 
 This is an exception inheriting from `RuntimeException`, thrown when an unexpected error occurs in the library that is unrelated to the compilation of the SRL code. This exception does not have a public interface other than the one available within the `RuntimeException` class.
