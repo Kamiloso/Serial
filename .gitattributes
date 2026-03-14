@@ -10,3 +10,5 @@
 # Binary files should be left untouched
 *.jar           binary
 
+# No HTML here!
+*.html linguist-detectable=false
