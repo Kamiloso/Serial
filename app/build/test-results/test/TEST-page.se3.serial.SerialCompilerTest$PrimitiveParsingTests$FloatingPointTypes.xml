@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.227Z" hostname="DESKTOP-LEINKP5" time="0.008">
+<testsuite name="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-03-14T19:17:07.833Z" hostname="DESKTOP-LEINKP5" time="0.008">
   <properties/>
-  <testcase name="doubleParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" time="0.004"/>
-  <testcase name="floatParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" time="0.003"/>
+  <testcase name="doubleParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" time="0.003"/>
+  <testcase name="floatParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$FloatingPointTypes" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

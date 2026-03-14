@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="page.se3.serial.SerialCompilerTest$ApiTests" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:49:59.903Z" hostname="DESKTOP-LEINKP5" time="0.065">
+<testsuite name="page.se3.serial.SerialCompilerTest$ApiTests" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-03-14T19:17:07.535Z" hostname="DESKTOP-LEINKP5" time="0.054">
   <properties/>
-  <testcase name="stringHandling()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
-  <testcase name="virtualPaths()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
-  <testcase name="stringSurrogatesAndLimits()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.007"/>
-  <testcase name="valueAccessAndMutate()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
-  <testcase name="arrayAccess()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.009"/>
-  <testcase name="nestedAccess()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.007"/>
-  <testcase name="casting()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
-  <testcase name="cloneAndEquality()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.008"/>
-  <testcase name="arrayMutationsAndBounds()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.007"/>
+  <testcase name="stringHandling()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.004"/>
+  <testcase name="virtualPaths()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.005"/>
+  <testcase name="stringSurrogatesAndLimits()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
+  <testcase name="valueAccessAndMutate()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.005"/>
+  <testcase name="arrayAccess()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.007"/>
+  <testcase name="nestedAccess()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.004"/>
+  <testcase name="casting()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.005"/>
+  <testcase name="cloneAndEquality()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
+  <testcase name="arrayMutationsAndBounds()" classname="page.se3.serial.SerialCompilerTest$ApiTests" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

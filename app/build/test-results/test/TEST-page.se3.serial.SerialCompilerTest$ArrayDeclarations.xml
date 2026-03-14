@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="page.se3.serial.SerialCompilerTest$ArrayDeclarations" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.327Z" hostname="DESKTOP-LEINKP5" time="0.031">
+<testsuite name="page.se3.serial.SerialCompilerTest$ArrayDeclarations" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-03-14T19:17:07.925Z" hostname="DESKTOP-LEINKP5" time="0.03">
   <properties/>
-  <testcase name="onlyDots()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.003"/>
-  <testcase name="dotted()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
+  <testcase name="onlyDots()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.005"/>
+  <testcase name="dotted()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.003"/>
   <testcase name="fullDotted()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
   <testcase name="empty()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
   <testcase name="shouldDenyNegativeSizeArrays()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
-  <testcase name="defined()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.003"/>
-  <testcase name="shouldIgnoreEmptyAndStupidlyHugeArrays()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
+  <testcase name="defined()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.004"/>
+  <testcase name="shouldIgnoreEmptyAndStupidlyHugeArrays()" classname="page.se3.serial.SerialCompilerTest$ArrayDeclarations" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

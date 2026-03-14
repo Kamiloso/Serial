@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.237Z" hostname="DESKTOP-LEINKP5" time="0.016">
+<testsuite name="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-03-14T19:17:07.843Z" hostname="DESKTOP-LEINKP5" time="0.014">
   <properties/>
   <testcase name="byteParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" time="0.004"/>
-  <testcase name="shortParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" time="0.003"/>
+  <testcase name="shortParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" time="0.002"/>
   <testcase name="intParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" time="0.003"/>
   <testcase name="longParsing()" classname="page.se3.serial.SerialCompilerTest$PrimitiveParsingTests$IntegerTypes" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
