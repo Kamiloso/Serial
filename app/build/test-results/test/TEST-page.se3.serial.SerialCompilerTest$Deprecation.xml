@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$Deprecation" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.207Z" hostname="DESKTOP-LEINKP5" time="0.004">
+  <properties/>
+  <testcase name="detectsHashCollisions()" classname="page.se3.serial.SerialCompilerTest$Deprecation" time="0.002"/>
+  <testcase name="variablesAreErased()" classname="page.se3.serial.SerialCompilerTest$Deprecation" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

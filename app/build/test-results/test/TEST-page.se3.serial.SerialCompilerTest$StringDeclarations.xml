@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$StringDeclarations" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.256Z" hostname="DESKTOP-LEINKP5" time="0.069">
+  <properties/>
+  <testcase name="nullTermination()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.008"/>
+  <testcase name="wrongSurrogatesDefaultForceUnicode()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.008"/>
+  <testcase name="wrongSurrogatesExplicitIgnoreFix()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.007"/>
+  <testcase name="undefined()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.006"/>
+  <testcase name="polish()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.007"/>
+  <testcase name="asArray()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.008"/>
+  <testcase name="empty()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.006"/>
+  <testcase name="doubleQuotes()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.006"/>
+  <testcase name="defined()" classname="page.se3.serial.SerialCompilerTest$StringDeclarations" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

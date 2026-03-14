@@ -1,0 +1,21 @@
+STRUCT Placa
+    LET int zl
+    LET int gr
+    
+    ENSURE zl >= 0
+    ENSURE gr >= 0 AND < 100
+
+RECORD Czlowiek
+    LET char imie[32]
+    LET char nazwisko[32]
+
+    DEF $name-regex = "^[\\p{L}]*$"
+    ENSURE imie MATCHES $name-regex
+    ENSURE nazwisko MATCHES $name-regex
+
+RECORD Pracownik : Czlowiek
+    LET long id
+    LET char placowka[32]
+    NEST Placa placa
+
+    ENSURE placowka NOT EQUALS "Uniwersytet Śląski"

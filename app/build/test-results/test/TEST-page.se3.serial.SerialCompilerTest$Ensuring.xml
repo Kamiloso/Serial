@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$Ensuring" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.135Z" hostname="DESKTOP-LEINKP5" time="0.069">
+  <properties/>
+  <testcase name="complexConditionsAndConditionInheritance()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.007"/>
+  <testcase name="floatingPointConditions()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.003"/>
+  <testcase name="atomicConditions()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.005"/>
+  <testcase name="deserializerFixesOnlyWhenNeeded()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.001"/>
+  <testcase name="detectsInvalidRegex()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.007"/>
+  <testcase name="stringConditions()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.007"/>
+  <testcase name="stringEquals()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.004"/>
+  <testcase name="properNaNBehaviour()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.002"/>
+  <testcase name="detectsIncompatibleComparisons()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.002"/>
+  <testcase name="supportsUnicodeRegex()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.009"/>
+  <testcase name="throwsAtRuntimeWhenConditionBranchIsEvaluated()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.002"/>
+  <testcase name="detectsInvalidDefaults()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.002"/>
+  <testcase name="detectsInvalidParsing()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.002"/>
+  <testcase name="arrayConditions()" classname="page.se3.serial.SerialCompilerTest$Ensuring" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

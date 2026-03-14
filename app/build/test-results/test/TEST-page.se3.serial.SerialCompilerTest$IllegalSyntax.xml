@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$IllegalSyntax" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.066Z" hostname="DESKTOP-LEINKP5" time="0.067">
+  <properties/>
+  <testcase name="shouldDetectWrongVariableNamePattern()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDetectArrayDeclarationOverflow()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.006"/>
+  <testcase name="shouldDetectDiamondProblem()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.003"/>
+  <testcase name="denyInheritanceFromItself()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.001"/>
+  <testcase name="tildaIsNotAllowed()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDenyExplicitNestedDeclarationInNest()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="denyMultipleTokenDefinitionsInLet()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="denyMultipleTokenDefinitionsInSet()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.003"/>
+  <testcase name="shouldDetectWrongStringEscaping()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDetectWrongQuotes()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="declaringArrayIntoVariableNameCollision()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.006"/>
+  <testcase name="declaringVariableIntoArrayNameCollision()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="denyOverwritingUndefinedVariables()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDetectStringDeclarationOverflow()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.006"/>
+  <testcase name="denyNestingInsideItself()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldBlockRecordHashCollisions()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.001"/>
+  <testcase name="shouldBlockFieldHashCollisions()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDenyExplicitNestedDeclarationInLet()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDenyDeclarationsOutsideRecord()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <testcase name="shouldDetectWrongRecordNamePattern()" classname="page.se3.serial.SerialCompilerTest$IllegalSyntax" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

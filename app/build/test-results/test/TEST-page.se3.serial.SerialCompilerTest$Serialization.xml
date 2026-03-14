@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$Serialization" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:49:59.658Z" hostname="DESKTOP-LEINKP5" time="0.243">
+  <properties/>
+  <testcase name="addedNewFieldsAndChangedOrder()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.008"/>
+  <testcase name="shrinkingArrays()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.01"/>
+  <testcase name="ignoringDeletedFields()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.005"/>
+  <testcase name="extremeEvolutionTest()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.007"/>
+  <testcase name="expandingArrays()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.005"/>
+  <testcase name="allPrimitivesAndArrays()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.008"/>
+  <testcase name="highlyNestedStruct()" classname="page.se3.serial.SerialCompilerTest$Serialization" time="0.195"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

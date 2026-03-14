@@ -1,0 +1,44 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Serial:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Serial_jar</output-path>
+    <root id="archive" name="Serial.jar">
+      <element id="module-output" name="Serial.app.main" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-templates-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/kotlin-stdlib-2.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-astbuilder-4.0.28.jar" path-in-jar="/" />
+      <element id="library" level="project" name="kotlin-dsl/accessors/45e2f3164aa964a840481415146c6a46/workspace/classes" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.gradle.toolchains/foojay-resolver/1.0.0/72c0af50bc9156fb2a9429ed152abb4417bb6eaf/foojay-resolver-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-installation-beacon-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-core-kotlin-extensions-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-ant-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-dateutil-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/3.0.0/7399e65dd7e9ff3404f4535b2f017093bdb134c7/j2objc-annotations-3.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-core-api-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-xml-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-kotlin-dsl-tooling-models-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-kotlin-dsl-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-groovydoc-4.0.28.jar" path-in-jar="/" />
+      <element id="library" level="project" name="dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/workspace/classes" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-base-services-groovy-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-core-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-kotlin-dsl-extensions-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-kotlin-dsl-shared-runtime-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-nio-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/javaparser-core-3.27.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/gradle-base-services-9.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.36.0/227d4d4957ccc3dc5761bd897e3a0ee587e750a7/error_prone_annotations-2.36.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="kotlin-dsl/accessors/cb1bf14d6b87eb0e0606816787fbe1d6/workspace/classes" />
+      <element id="library" level="project" name="kotlin-dsl/accessors/afa83c638bc642f5cdcbda5868b78d99-PS/workspace/classes" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.3/aeaffd00d57023a2c947393ed251f0354f0985fc/failureaccess-1.0.3.jar" path-in-jar="/" />
+      <element id="library" level="project" name="kotlin-dsl/accessors/afa83c638bc642f5cdcbda5868b78d99-VC/workspace/classes" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-json-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/groovy-datetime-4.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Gradle/gradle-9.1.0/lib/kotlin-reflect-2.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.4.6-jre/4437fb72c3cc5d29554b588d9a97bea12d6a42e1/guava-33.4.6-jre.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

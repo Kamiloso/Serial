@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$BasicOperations" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:50:00.359Z" hostname="DESKTOP-LEINKP5" time="0.011">
+  <properties/>
+  <testcase name="shouldSupportInheritance()" classname="page.se3.serial.SerialCompilerTest$BasicOperations" time="0.002"/>
+  <testcase name="shouldInitializeVariablesWithLet()" classname="page.se3.serial.SerialCompilerTest$BasicOperations" time="0.001"/>
+  <testcase name="shouldSupportDefDefineMacros()" classname="page.se3.serial.SerialCompilerTest$BasicOperations" time="0.002"/>
+  <testcase name="shouldHandleDeeplyNestedObjects()" classname="page.se3.serial.SerialCompilerTest$BasicOperations" time="0.001"/>
+  <testcase name="shouldModifyValuesWithSet()" classname="page.se3.serial.SerialCompilerTest$BasicOperations" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

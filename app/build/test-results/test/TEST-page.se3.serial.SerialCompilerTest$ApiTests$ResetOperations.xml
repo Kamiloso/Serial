@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-03-14T17:49:59.983Z" hostname="DESKTOP-LEINKP5" time="0.045">
+  <properties/>
+  <testcase name="resetArray()" classname="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" time="0.009"/>
+  <testcase name="resetValue()" classname="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" time="0.008"/>
+  <testcase name="resetTreeOnWholeBranch()" classname="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" time="0.009"/>
+  <testcase name="resetTreeOnSingleNestedRecord()" classname="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" time="0.01"/>
+  <testcase name="resetEmptyOrWrongPath()" classname="page.se3.serial.SerialCompilerTest$ApiTests$ResetOperations" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
