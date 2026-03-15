@@ -1,13 +1,16 @@
-# Serial
+# Serial-Java-Lib ⚙️☕
 
 This is a data serialization library for Java. Its one-file architecture allows for a really simple importing process. 
 Write code in a custom data-defining language and use this library to serialize and deserialize records. You can also validate and repair data automatically during deserialization or by using the `checkAndRepair()` method.
 
-### How To Import?
-Importing is very simple. Just copy the file `SerialCompiler.java` into the package `page.se3.serial` inside your Java project. You can optionally include `SerialCompilerTests.java` (unit tests written in the JUnit5 framework). 
-Files can be obtained from [here](https:/Kamiloso/Serial/releases).
+## How To Import?
+Importing is very simple. Just copy the file `SerialCompiler.java` into the package `page.se3.serial` inside your Java project. You can optionally include `SerialCompilerTests.java` (unit tests written in the JUnit5 framework). Files, along with the original polish doumentation, can be obtained from: [here](https:/Kamiloso/Serial/releases).
 
-### Usage Example
+## Demonstrative Example
+
+The example below is a simple demo of the library. Try out this code yourself and see how
+`User` record serializes and deserializes. You can freely modifiy this code based on the
+[documentation](#11-overview-of-library-functionalities).
 
 ```java
 package page.se3.myproject;
