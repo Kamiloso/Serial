@@ -275,20 +275,20 @@ STRUCT / RECORD name : base_1 base_2 .. base_n
 **🔹 Example**
 ```srl
 STRUCT Base1
-    LET int a = 1
+    LET int a = 1
 
 RECORD Base2
-    LET int b = 2
+    LET int b = 2
 
 RECORD Derived : Base1 Base2
-    LET int c = 3
+    LET int c = 3
 ```
 
 > **💡 Note:** The `Derived` record inherits all fields along with default values from the `Base1` structure and the `Base2` record, and then adds its own fields to them.
 
 ### 2.2.2 DEFINE / DEF
 
-The `DEFINE` and `DEF` commands act as text macros, replacing the indicated tokens directly before their interpretation. They differ primarily in scope: `DEFINE` is global, while `DEF` is a local macro whose validity expires with the closing of the current record or structure. 
+The `DEFINE` and `DEF` commands act as text macros, replacing the indicated tokens directly before their interpretation. They differ primarily in scope: `DEFINE` is global, while `DEF` is a local macro whose validity expires with the closing of the current record or structure. 
 
 > **⚠️ Important:** In the case of names sounding the same, the local `DEF` macro always takes precedence over the global `DEFINE`. It should be noted that the definition instructions themselves are not subject to the token replacement mechanism.
 
@@ -304,12 +304,12 @@ DEFINE / DEF search = replace
 DEFINE $global-value = 100
 
 RECORD Record1
-    DEF $local-value = 50
-    LET int ar1 = $local-value
+    DEF $local-value = 50
+    LET int ar1 = $local-value
 
 RECORD Record2
-    // here $local-value no longer exists
-    LET int ar2 = $global-value
+    // here $local-value no longer exists
+    LET int ar2 = $global-value
 ```
 
 ### 2.2.3 LET
@@ -319,119 +319,142 @@ The `LET` command is used to define variables and arrays inside a record / struc
 #### 📌 Defining variables
 Variables in the SRL language can take the form of all 8 primitive types found in the Java language. Built-in parsing functions, such as `Short.parseShort(...)`, were used to parse them. The exception are the `boolean` and `char` types, which received dedicated parsers.
 
-**Syntax & Example:**
+**🔹 Syntax**
 ```srl
-// LET primitive_type name [= default_value]
+LET primitive_type name [= default_value]
+```
+
+**🔹 Example**
+```srl
 RECORD Record
-    LET byte bitwise = -5
-    LET short short_num = -10
-    LET int number = 15
-    LET long long_num = 20
-    LET float fraction1 = 3.5
-    LET double fraction2 = 3.3552
-    LET char character = 'A' // you can also use %65 , '\u0041' (Unicode) or a single letter A
-    LET boolean logic = true // you can also use 0 or 1; false, true expressions are case-insensitive
+    LET byte bitwise = -5
+    LET short short_num = -10
+    LET int number = 15
+    LET long long_num = 20
+    LET float fraction1 = 3.5
+    LET double fraction2 = 3.3552
+    LET char character = 'A' // you can also use %65 , '\u0041' (Unicode) or a single letter A
+    LET boolean logic = true // you can also use 0 or 1; false, true expressions are case-insensitive
 ```
 
 #### 📌 Defining arrays
-Arrays are actually `N` repeated declarations of a given variable, where `N` is the size of the array. By writing: `LET int array[3]`, we are actually declaring variables: `array[0]`, `array[1]`, and `array[2]`. 
+Arrays are actually `N` repeated declarations of a given variable, where `N` is the size of the array. By writing: `LET int array[3]`, we are actually declaring variables: `array[0]`, `array[1]`, and `array[2]`. 
 
 > **💡 Optimization Tip:** It is recommended to use arrays instead of suffixed variables, because it allows the serializer some optimizations in the size of the binary format, and it is also more convenient for a human.
 
-**Syntax & Example:**
+**🔹 Syntax**
 ```srl
-// LET primitive_type name[size] [= v1 v2 .. vn ...]
+LET primitive_type name[size] [= v1 v2 .. vn ...]
+```
+
+**🔹 Example**
+```srl
 RECORD Record
-    // Empty array, filled with zeros
-    LET int arrayA[5]
+    // Empty array, filled with zeros
+    LET int arrayA[5]
 
-    // Array containing consecutive elements from 1 to 3, the rest filled with zeros
-    LET int arrayB[5] = 1 2 3
+    // Array containing consecutive elements from 1 to 3, the rest filled with zeros
+    LET int arrayB[5] = 1 2 3
 
-    // Array containing consecutive elements from 1 to 3, the rest filled with the last element (3)
-    LET int arrayC[5] = 1 2 3 ...
+    // Array containing consecutive elements from 1 to 3, the rest filled with the last element (3)
+    LET int arrayC[5] = 1 2 3 ...
 
-    // Character array equivalent to the string "ABCD"
-    LET char charArray[16] = A B C D
+    // Character array equivalent to the string "ABCD"
+    LET char charArray[16] = A B C D
 ```
 
 #### 📌 Defining strings
 Arrays of type `char` can, depending on the context, also be interpreted by the library as strings. Therefore, syntax has been added to the parser allowing the default value of a string to be defined in a visually friendly way.
 
-**Syntax & Example:**
+**🔹 Syntax**
 ```srl
-// LET char name[size] = "Some string\n"
+LET char name[size] = "Some string\n"
+```
+
+**🔹 Example**
+```srl
 RECORD Record
-    // The following declarations are identical to each other.
-    LET char text1[16] = "ALA HAS A CAT\n"
-    LET char text2[16] = A L A ' ' H A S ' ' A ' ' C A T '\n'
+    // The following declarations are identical to each other.
+    LET char text1[16] = "ALA HAS A CAT\n"
+    LET char text2[16] = A L A ' ' H A S ' ' A ' ' C A T '\n'
 ```
 
 ### 2.2.4 SET
 
 The `SET` command allows overwriting previously defined default values of variables and arrays. This is particularly useful when nesting and inheriting records, which is mentioned more in further sections of the documentation.
 
-**🔹 Syntax & Example**
+**🔹 Syntax**
 ```srl
-// SET field_name [= default_value]
+SET field_name [= default_value]
+```
+
+**🔹 Example**
+```srl
 RECORD Base
-    LET int varA = 5
-    LET int varB = 5
-    LET char text[16] = "ab cd"
+    LET int varA = 5
+    LET int varB = 5
+    LET char text[16] = "ab cd"
 
 RECORD Derived : Base
-    SET varA // 0 will be set
-    SET varB = 3
-    SET text = a b // new string: "ab"
+    SET varA // 0 will be set
+    SET varB = 3
+    SET text = a b // new string: "ab"
 ```
 
 ### 2.2.5 NEST
 
-The `NEST` command allows for nesting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record, preceding each variable name with the nest name, using a dot as a separator. 
+The `NEST` command allows for nesting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record, preceding each variable name with the nest name, using a dot as a separator. 
 
 Variables pasted into the record using the `NEST` command can be freely modified with the `SET` command by referring to them through the nest name and the dot operator.
 
-**🔹 Syntax & Example**
+**🔹 Syntax**
 ```srl
-// NEST record_name nest_name
-// NEST record_name nest_array_name[size]
+NEST record_name nest_name
+NEST record_name nest_array_name[size]
+```
 
+**🔹 Example**
+```srl
 RECORD Base
-    LET int var = 5
-    LET char text[16] = a b c d
+    LET int var = 5
+    LET char text[16] = a b c d
 
 RECORD Derived
-    NEST Base nest
-    SET nest.var = 3
-    SET nest.text = "abc"
+    NEST Base nest
+    SET nest.var = 3
+    SET nest.text = "abc"
 
 // nest arrays are possible
-    NEST Base nests[3]
-    SET nests[1].var = 99
+    NEST Base nests[3]
+    SET nests[1].var = 99
 ```
 
 ### 2.2.6 BASE
 
-The `BASE` command allows for inheriting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record. Variables pasted into the record using the `BASE` command can be freely modified with the `SET` command. 
+The `BASE` command allows for inheriting records. This works by copying all variables and assertions defined using the `ENSURE` command to the parent record. Variables pasted into the record using the `BASE` command can be freely modified with the `SET` command. 
 
 > **ℹ️ Info:** Alternatively, instead of the `BASE` command, you can use inheritance inside the `RECORD` / `STRUCT` command.
 
-**🔹 Syntax & Example**
+**🔹 Syntax**
 ```srl
-// BASE record_name
+BASE record_name
+```
+
+**🔹 Example**
+```srl
 RECORD Base
-    LET int var = 5
-    LET char text[16] = a b c
+    LET int var = 5
+    LET char text[16] = a b c
 
 RECORD Derived
-    BASE Base
-    SET var = 3
-    SET text = "abc"
+    BASE Base
+    SET var = 3
+    SET text = "abc"
 ```
 
 ### 2.2.7 ENSURE
 
-The `ENSURE` command provides an advanced tool for determining when a structure / record is valid. Rules can be defined for variables, arrays, and strings. 
+The `ENSURE` command provides an advanced tool for determining when a structure / record is valid. Rules can be defined for variables, arrays, and strings. 
 
 The Public API provides a method for verifying record integrity, which, upon detecting an inconsistency, immediately fixes it (restores the field to its default value). Integrity verification can also happen implicitly during deserialization. However, it is possible to call the deserialization method in such a way that verification does not occur. Default field values must satisfy all `ENSURE` rules; otherwise, compilation will end with an error.
 
@@ -452,33 +475,33 @@ NOT operator argument
 These are `>`, `>=`, `<`, `<=`, `==`, and `!=`. They act on variables and represent comparisons of the field with the argument. If an array is provided instead of a field, these operators apply to each of its elements separately. These comparisons for floating-point numbers work according to the **IEEE 754** standard.
 ```srl
 RECORD Record
-    LET double a = -1
-    LET double arr[100] = 3 ...
-    ENSURE a > 0 AND < 10 OR == -1
-    ENSURE arr != 5 // for each element of the arr array
+    LET double a = -1
+    LET double arr[100] = 3 ...
+    ENSURE a > 0 AND < 10 OR == -1
+    ENSURE arr != 5 // for each element of the arr array
 ```
 
 **2. IS Operator**
 Using this operator only makes sense for floating-point numbers (`float` and `double`). For any other value, it returns `false`. It accepts 3 options as an argument: `FINITE`, `INFINITE`, and `NAN`, which check whether a floating-point number belongs to one of these three groups.
 ```srl
 RECORD Record
-    LET double a = 5
-    LET double b = -Infinity
-    LET double c = NaN
-    LET double d = 0
-    ENSURE a IS FINITE
-    ENSURE b IS INFINITE
-    ENSURE c IS NAN
-    ENSURE d NOT IS NAN
+    LET double a = 5
+    LET double b = -Infinity
+    LET double c = NaN
+    LET double d = 0
+    ENSURE a IS FINITE
+    ENSURE b IS INFINITE
+    ENSURE c IS NAN
+    ENSURE d NOT IS NAN
 ```
 
 **3. String Operators**
 These operators check the correctness of a string and treat it as an integral whole. Includes `EQUALS` (checks for exact equality) and `MATCHES` (checks against a regular expression regex).
 ```srl
 RECORD Record
-    LET char name[64]
-    ENSURE name NOT EQUALS "Adolf"
-    ENSURE name MATCHES "^[\\p{L}-]*$"
+    LET char name[64]
+    ENSURE name NOT EQUALS "Adolf"
+    ENSURE name MATCHES "^[\\p{L}-]*$"
 ```
 
 #### 📌 Evaluation Rules
