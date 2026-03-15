@@ -117,18 +117,18 @@ Data structures defined this way can be modified, serialized to a byte array, an
 **🔹 SRL Code Example:**
 ```srl
 STRUCT Vector3
-LET double x ENSURE x IS FINITE
-LET double y ENSURE y IS FINITE
-LET double z ENSURE z IS FINITE
+    LET double x ENSURE x IS FINITE
+    LET double y ENSURE y IS FINITE
+    LET double z ENSURE z IS FINITE
 
 RECORD Entity
-LET long id
-NEST Vector3 position
+    LET long id
+    NEST Vector3 position
 
 RECORD Player : Entity
-SET position.y = 5.0
-LET char nickname [16] = "Player"
-ENSURE nickname MATCHES "^[a-zA-Z0-9_-]+$"
+    SET position.y = 5.0
+    LET char nickname [16] = "Player"
+    ENSURE nickname MATCHES "^[a-zA-Z0-9_-]+$"
 ```
 
 **🔹 Usage Example in Java:**
@@ -197,11 +197,11 @@ comment
 // This is a short comment
 
 RECORD Employee
-LET int id
-LET char name [32]
-LET char surname [32]
-_LET float old_field_1
-__LET float old_field_2
+    LET int id
+    LET char name [32]
+    LET char surname [32]
+    _LET float old_field_1
+    __LET float old_field_2
 ```
 
 ### 2.1.2 Tokenization
@@ -275,13 +275,13 @@ STRUCT / RECORD name : base_1 base_2 .. base_n
 **🔹 Example**
 ```srl
 STRUCT Base1
-LET int a = 1
+    LET int a = 1
 
 RECORD Base2
-LET int b = 2
+    LET int b = 2
 
 RECORD Derived : Base1 Base2
-LET int c = 3
+    LET int c = 3
 ```
 
 > **💡 Note:** The `Derived` record inherits all fields along with default values from the `Base1` structure and the `Base2` record, and then adds its own fields to them.
@@ -304,12 +304,12 @@ DEFINE / DEF search = replace
 DEFINE $global-value = 100
 
 RECORD Record1
-DEF $local-value = 50
-LET int ar1 = $local-value
+    DEF $local-value = 50
+    LET int ar1 = $local-value
 
 RECORD Record2
-// here $local-value no longer exists
-LET int ar2 = $global-value
+    // here $local-value no longer exists
+    LET int ar2 = $global-value
 ```
 
 ### 2.2.3 LET
@@ -323,14 +323,14 @@ Variables in the SRL language can take the form of all 8 primitive types found i
 ```srl
 // LET primitive_type name [= default_value]
 RECORD Record
-LET byte bitwise = -5
-LET short short_num = -10
-LET int number = 15
-LET long long_num = 20
-LET float fraction1 = 3.5
-LET double fraction2 = 3.3552
-LET char character = 'A' // you can also use %65 , '\u0041' (Unicode) or a single letter A
-LET boolean logic = true // you can also use 0 or 1; false, true expressions are case-insensitive
+    LET byte bitwise = -5
+    LET short short_num = -10
+    LET int number = 15
+    LET long long_num = 20
+    LET float fraction1 = 3.5
+    LET double fraction2 = 3.3552
+    LET char character = 'A' // you can also use %65 , '\u0041' (Unicode) or a single letter A
+    LET boolean logic = true // you can also use 0 or 1; false, true expressions are case-insensitive
 ```
 
 #### 📌 Defining arrays
@@ -340,19 +340,19 @@ Arrays are actually `N` repeated declarations of a given variable, where `N` is 
 
 **Syntax & Example:**
 ```srl
-// LET primitive_type name [size] [= v1 v2 .. vn ...]
+// LET primitive_type name[size] [= v1 v2 .. vn ...]
 RECORD Record
-// Empty array, filled with zeros
-LET int arrayA [5]
+    // Empty array, filled with zeros
+    LET int arrayA[5]
 
-// Array containing consecutive elements from 1 to 3, the rest filled with zeros
-LET int arrayB [5] = 1 2 3
+    // Array containing consecutive elements from 1 to 3, the rest filled with zeros
+    LET int arrayB[5] = 1 2 3
 
-// Array containing consecutive elements from 1 to 3, the rest filled with the last element (3)
-LET int arrayC [5] = 1 2 3 ...
+    // Array containing consecutive elements from 1 to 3, the rest filled with the last element (3)
+    LET int arrayC[5] = 1 2 3 ...
 
-// Character array equivalent to the string "ABCD"
-LET char charArray [16] = A B C D
+    // Character array equivalent to the string "ABCD"
+    LET char charArray[16] = A B C D
 ```
 
 #### 📌 Defining strings
@@ -360,11 +360,11 @@ Arrays of type `char` can, depending on the context, also be interpreted by the 
 
 **Syntax & Example:**
 ```srl
-// LET char name [size] = "Some string\n"
+// LET char name[size] = "Some string\n"
 RECORD Record
-// The following declarations are identical to each other.
-LET char text1 [16] = "ALA HAS A CAT\n"
-LET char text2 [16] = A L A ' ' H A S ' ' A ' ' C A T '\n'
+    // The following declarations are identical to each other.
+    LET char text1[16] = "ALA HAS A CAT\n"
+    LET char text2[16] = A L A ' ' H A S ' ' A ' ' C A T '\n'
 ```
 
 ### 2.2.4 SET
@@ -375,14 +375,14 @@ The `SET` command allows overwriting previously defined default values of variab
 ```srl
 // SET field_name [= default_value]
 RECORD Base
-LET int varA = 5
-LET int varB = 5
-LET char text [16] = "ab cd"
+    LET int varA = 5
+    LET int varB = 5
+    LET char text[16] = "ab cd"
 
 RECORD Derived : Base
-SET varA // 0 will be set
-SET varB = 3
-SET text = a b // new string: "ab"
+    SET varA // 0 will be set
+    SET varB = 3
+    SET text = a b // new string: "ab"
 ```
 
 ### 2.2.5 NEST
@@ -394,20 +394,20 @@ Variables pasted into the record using the `NEST` command can be freely modified
 **🔹 Syntax & Example**
 ```srl
 // NEST record_name nest_name
-// NEST record_name nest_array_name [size]
+// NEST record_name nest_array_name[size]
 
 RECORD Base
-LET int var = 5
-LET char text [16] = a b c d
+    LET int var = 5
+    LET char text[16] = a b c d
 
 RECORD Derived
-NEST Base nest
-SET nest.var = 3
-SET nest.text = "abc"
+    NEST Base nest
+    SET nest.var = 3
+    SET nest.text = "abc"
 
 // nest arrays are possible
-NEST Base nests [3]
-SET nests[1].var = 99
+    NEST Base nests[3]
+    SET nests[1].var = 99
 ```
 
 ### 2.2.6 BASE
@@ -420,13 +420,13 @@ The `BASE` command allows for inheriting records. This works by copying all vari
 ```srl
 // BASE record_name
 RECORD Base
-LET int var = 5
-LET char text [16] = a b c
+    LET int var = 5
+    LET char text[16] = a b c
 
 RECORD Derived
-BASE Base
-SET var = 3
-SET text = "abc"
+    BASE Base
+    SET var = 3
+    SET text = "abc"
 ```
 
 ### 2.2.7 ENSURE
@@ -452,33 +452,33 @@ NOT operator argument
 These are `>`, `>=`, `<`, `<=`, `==`, and `!=`. They act on variables and represent comparisons of the field with the argument. If an array is provided instead of a field, these operators apply to each of its elements separately. These comparisons for floating-point numbers work according to the **IEEE 754** standard.
 ```srl
 RECORD Record
-LET double a = -1
-LET double arr [100] = 3 ...
-ENSURE a > 0 AND < 10 OR == -1
-ENSURE arr != 5 // for each element of the arr array
+    LET double a = -1
+    LET double arr[100] = 3 ...
+    ENSURE a > 0 AND < 10 OR == -1
+    ENSURE arr != 5 // for each element of the arr array
 ```
 
 **2. IS Operator**
 Using this operator only makes sense for floating-point numbers (`float` and `double`). For any other value, it returns `false`. It accepts 3 options as an argument: `FINITE`, `INFINITE`, and `NAN`, which check whether a floating-point number belongs to one of these three groups.
 ```srl
 RECORD Record
-LET double a = 5
-LET double b = -Infinity
-LET double c = NaN
-LET double d = 0
-ENSURE a IS FINITE
-ENSURE b IS INFINITE
-ENSURE c IS NAN
-ENSURE d NOT IS NAN
+    LET double a = 5
+    LET double b = -Infinity
+    LET double c = NaN
+    LET double d = 0
+    ENSURE a IS FINITE
+    ENSURE b IS INFINITE
+    ENSURE c IS NAN
+    ENSURE d NOT IS NAN
 ```
 
 **3. String Operators**
 These operators check the correctness of a string and treat it as an integral whole. Includes `EQUALS` (checks for exact equality) and `MATCHES` (checks against a regular expression regex).
 ```srl
 RECORD Record
-LET char name [64]
-ENSURE name NOT EQUALS "Adolf"
-ENSURE name MATCHES "^[\\p{L}-]*$"
+    LET char name[64]
+    ENSURE name NOT EQUALS "Adolf"
+    ENSURE name MATCHES "^[\\p{L}-]*$"
 ```
 
 #### 📌 Evaluation Rules
